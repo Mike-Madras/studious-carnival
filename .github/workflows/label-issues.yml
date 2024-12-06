@@ -10,6 +10,22 @@ jobs:
     permissions:
       issues: write
     steps:
+      - name: Label issues
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        with:
+          add-labels: "infrastructure-monitoring, test-label"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}name: Label issues
+on:
+  issues:
+    types:
+      - reopened
+      - opened
+jobs:
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
        - name: Label issues
          uses: andymckay/labler@1.0.2
          with:
