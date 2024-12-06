@@ -1,13 +1,13 @@
-#Pull Request Template
+Pull Request Template
 
-##Description
+Description
 
 Include a description of what has been changed and include relevant motivation and context.
 If needed, ensure to list all dependencies that are required for this change.
 
 Fixes # (issue)
 
-##Type of change
+Type of change
 
 Please delete options that are not relevant
 
