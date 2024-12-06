@@ -20,5 +20,5 @@ jobs:
     - name: Label issues
       uses: actions/labeler@v4
       with:
-        add-labels: "triage"
+        add-labels: "new issue"
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
