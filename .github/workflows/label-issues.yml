@@ -1,33 +1,19 @@
-name: Label issues
+name: "Issue Labeler"
 on:
   issues:
-    types:
-      - reopened
-      - opened
+    types: [opened, edited]
+
+permissions:
+  issues: write
+  contents: read
+
 jobs:
-  label_issues:
+  triage:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
     steps:
-      - name: Label issues
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
-        with:
-          add-labels: "infrastructure-monitoring, test-label"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}name: Label issues
-on:
-  issues:
-    types:
-      - reopened
-      - opened
-jobs:
-  label_issues:
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-    steps:
-       - name: Label issues
-         uses: andymckay/labler@1.0.2
-         with:
-           add-labels: "triage"
-           repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: github/issue-labeler@v3.3 #May not be the latest version
+      with:
+        configuration-path: .github/labeler.yml
+        not-before: 2020-01-15T02:54:32Z
+        enable-versioned-regex: 0
+        repo-token: ${{ github.token }}
